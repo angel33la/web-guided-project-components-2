@@ -1,7 +1,3 @@
-const breeds = [
-  'mastiff',
-  'affenpinscher',
-  'australian',
-  'mexicanhairless',
-  'cocker',
-]
+const breeds = ["labrador", "beagle", "husky", "poodle", "bulldog"];
+
+export default breeds;
