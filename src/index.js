@@ -1,3 +1,4 @@
+//import axios from 'axios';
 // 👉 TASK 1- Test out the following endpoints:
 
 //  https://dog.ceo/api/breeds/image/random
@@ -8,27 +9,37 @@
 
 // 👉 TASK 2- Select the "entry point", the element
 // inside of which we'll inject our dog cards 
-const entryPoint = null
+const entryPoint = document.querySelector('.entry');
 
 
 // 👉 TASK 3- `dogCardMaker` takes an object and returns a Dog Card.
 // Use this function to build a Card, and append it to the entry point.
 function dogCardMaker({ imageURL, breed }) {
-  // instantiating the elements
-  /*
-    <div class="dog-card">
-      <img class="dog-image">
-      <h3>
-    </div>
-  */
-  // set class names, attributes and text
+  // Create elements
+  const card = document.createElement("div");
+  const img = document.createElement("img");
+  const title = document.createElement("h3");
 
-  // create the hierarchy
+  // Set class names, attributes, and text
+  card.classList.add("dog-card");
+  img.classList.add("dog-image");
+  img.src = imageURL;
+  img.alt = `A cute ${breed}`;
+  title.textContent = breed;
 
-  // add some interactivity
+  // Create the hierarchy
+  card.appendChild(img);
+  card.appendChild(title);
 
-  // never forget to return!
+  // Add interactivity (optional)
+  card.addEventListener("click", () => {
+    alert(`You clicked on a ${breed}!`);
+  });
+
+  // Return the card
+  return card;
 }
+entryPoint.appendChild(dogCardMaker({ imageURL: "https://dog.ceo/api/breeds/image/random", breed: "Labrador" }));
 
 
 // 👉 TASK 4- Bring the Axios library into the project using one of two methods:
